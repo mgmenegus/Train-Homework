@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <meta charset="UTF-8">
+    
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Train Times</title>
+
+  </head>
+  
+  
+    <div id="header" class="jumbotron text-center">
+      <div class "container">
+        <h3 class="display-3">Train Station</div>
+          <h4></h4>
+      </div>
+    </div>
+
+  <div class "container">
+    <div class = "row" >
+  
+    <div class = class="col-xs-8">
+
+    </div>
+  </div>
+
+  <div id="employee-view">
+  
+  </div>
+
+  <br>
+
+  <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Train Name</th>
+      <th scope="col">Destination</th>
+      <th scope="col">Train Time</th>
+      <th scope="col">Frequency</th>
+      <th scope="col">Next Arrival</th>
+      <th scope="col">Minutes Away</th>
+    </tr>
+  </thead>
+  <tbody id="train">
+</table>
+
+    <form id="train-form">
+
+      <label for="train-input">Add Train</label>
+      <br>
+
+  <label for="train-Name">Train Name</label>
+  <br>
+    <input type="text" id="train-name"><br>
+
+    <label for="train-role">Destination</label>
+    <br>
+    <input type="text" id="train-role"><br>
+
+    <label for="first-start-date">First Train Time</label>
+    <br>
+    <input type="text" id="first-start-date"><br>
+
+     <label for="train-rate">Frequency</label>
+     <br>
+    <input type="text" id="Frequency-rate"><br>
+
+    <input id="train-add" type="submit" value="Submit">
+    </form>
+
+  
+  <body class = container id="body">
+    
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/moment.min.js"></script>  
+     <script src="assets/javascript/app.js"></script>    
+
+  </body>
+  
+
+</html>
