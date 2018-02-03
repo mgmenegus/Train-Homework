@@ -1,31 +1,33 @@
- var config = {
-    apiKey: "AIzaSyAABGC9edTiKN4lGIA8auqRt6cg-y2LY2A",
-    authDomain: "employee-database-bcs.firebaseapp.com",
-    databaseURL: "https://employee-database-bcs.firebaseio.com",
-    projectId: "employee-database-bcs",
-    storageBucket: "employee-database-bcs.appspot.com",
-    messagingSenderId: "363408932150"
+// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBVzO9ZV2Ex5xtVBL_eT2qUM2YvKKtNA4k",
+    authDomain: "train-homework-d47b5.firebaseapp.com",
+    databaseURL: "https://train-homework-d47b5.firebaseio.com",
+    projectId: "train-homework-d47b5",
+    storageBucket: "",
+    messagingSenderId: "460730571628"
   };
   firebase.initializeApp(config);
+
   var database =firebase.database();
-  var name="";
-  var role="";
-  var sData="";
-  var monthsWorked="";
-  var rate="";
-  var tBilled="";
-  $("#add-employee").on("click",function(){
+  var trainName="";
+  var destination="";
+  var firstTrain="";
+  var frequency="";
+  var nextArrival="";
+  var mAway="";
+  $("#train-add").on("click",function(){
     event.preventDefault();
     console.log("hell yeah")
-    name=$("#employee-name").val().trim();
-    role=$("#employee-role").val().trim();
-    sDate=$("#employee-start-date").val().trim();
-    rate=$("#employee-monthly-rate").val().trim();
+    trainName=$("#train-name").val().trim();
+    destination=$("#train-role").val().trim();
+    firstTrain=$("#first-start-date").val().trim();
+    nextArrival=$("#frequency-rate").val().trim();
     database.ref().push({
-      name: name,
-      role: role,
-      sDate: sDate,
-      rate: rate,
+      trainName: trainName,
+      destination: destination,
+      firstTrain: firstTrain,
+      nextArrival: nextArrival,
       dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
 
@@ -34,16 +36,16 @@
     return moment().diff(new Date(date), 'months');
 };
   database.ref().on("child_added",function(childSnapshot){
-    //add childSnapshot to table
-    var newEmployee=childSnapshot.val();
+//add childSnapshot to table
+    var newTrain=childSnapshot.val();
     console.log(newEmployee);
-    var table = $("#employees");
+    var table = $("#train");
     var newRow = $("<tr>")
-    var neName = $("<td>").text(newEmployee.name);
-    var nrole = $("<td>").text(newEmployee.role);
-    var nsDate = $("<td>").text(newEmployee.sDate);
-    var nmonthsWorked = $("<td>").text(calcTime(newEmployee.sDate));
-    var nrate = $("<td>").text(newEmployee.rate);
-    var ntBilled = $("<td>").text(calcTime(newEmployee.sDate)*newEmployee.rate);
-    table.append(newRow).append(neName).append(nrole).append(nsDate).append(nmonthsWorked).append(nrate).append(ntBilled);
+    var nName = $("<td>").text(newTrain.trainName);
+    var nDest = $("<td>").text(newTrain.destination);
+    var nsTime = $("<td>").text(newTrain.firstTrain);
+    var nFreq = $("<td>").text(calcTime(newTrain.frequency));
+    var nArri = $("<td>").text(newTrain.nextArrival);
+    var nMin = $("<td>").text(calcTime(newTrain.sDate)*newTrain.rate);
+    table.append(newRow).append(nName).append(nDest).append(nsTime).append(nFreq).append(nArri).append(nMin);
   })
